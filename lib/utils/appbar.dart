@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
-void buildAppBar(BuildContext context, {{String title ="" }}) {
-  
+AppBar buildAppBar(BuildContext context, {String title = "Whatsapp"}) {
+  return AppBar(
+    title: Text(title),
+  );
 }
