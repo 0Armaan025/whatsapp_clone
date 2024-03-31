@@ -317,6 +317,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
+  stylish_bottom_bar:
+    dependency: "direct main"
+    description:
+      name: stylish_bottom_bar
+      sha256: "54970e4753b4273239b6dea0d1175c56beabcf39b5c65df4cbf86f1b86568d2b"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.3"
   term_glyph:
     dependency: transitive
     description:

@@ -51,6 +51,7 @@ class _OtpViewState extends State<OtpView> {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 58.0),
                   child: OTPTextField(
+                    
                     length: 6,
                     width: MediaQuery.of(context).size.width,
                     fieldWidth: 20,
