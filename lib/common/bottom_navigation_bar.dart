@@ -15,33 +15,42 @@ class _BuildNavBarState extends State<BuildNavBar> {
   @override
   Widget build(BuildContext context) {
     return StylishBottomBar(
+      // option: BubbleBarOptions()
       option: AnimatedBarOptions(
         barAnimation: BarAnimation.fade,
-        iconStyle: IconStyle.animated,
+        iconStyle: IconStyle.Default,
       ),
+      // hasNotch: true,
 
       items: [
         BottomBarItem(
           icon: const Icon(Icons.chat_outlined),
           title: const Text('Chats'),
-          backgroundColor: Colors.black,
+          backgroundColor: selected != 0
+              ? Colors.black
+              : const Color.fromARGB(255, 170, 153, 0),
           selectedIcon: const Icon(Icons.chat_rounded),
         ),
         BottomBarItem(
           icon: const Icon(Icons.update_rounded),
           title: const Text('Updates'),
-          backgroundColor: Colors.black,
+          backgroundColor: selected != 1
+              ? Colors.black
+              : const Color.fromARGB(255, 170, 153, 0),
         ),
         BottomBarItem(
           icon: const Icon(Icons.group_sharp),
           title: const Text('Communities'),
-          backgroundColor: Colors.black,
+          backgroundColor: selected != 2
+              ? Colors.black
+              : const Color.fromARGB(255, 170, 153, 0),
         ),
         BottomBarItem(
           icon: const Icon(Icons.call_outlined),
           title: const Text('Calls'),
-          backgroundColor: Colors.black,
-          selectedColor: Colors.yellow,
+          backgroundColor: selected != 3
+              ? Colors.black
+              : const Color.fromARGB(255, 170, 153, 0),
         ),
       ],
       fabLocation: StylishBarFabLocation.center,

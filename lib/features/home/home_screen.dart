@@ -67,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
               (BuildContext context, int index) {
                 return MessageTile();
               },
-              childCount: 2,
+              childCount: 3,
             ),
           ),
         ],
