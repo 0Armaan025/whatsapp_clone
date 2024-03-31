@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/features/auth/views/otp/otp_page.dart';
+import 'package:whatsapp_clone/features/onboarding/onboarding_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: OtpView(),
+      home: OnboardingView(),
     );
   }
 }

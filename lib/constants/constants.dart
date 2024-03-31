@@ -1,2 +1,2 @@
-const String appName = "Whatsapp Clone";
+const String appName = "Whatsapp";
 const String appTagline = "Simple. Secure. Reliable Messaging.";
