@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/features/auth/views/otp/otp_page.dart';
 import 'package:whatsapp_clone/features/auth/views/signup/signup_view.dart';
+import 'package:whatsapp_clone/features/calls/calls_view.dart';
+import 'package:whatsapp_clone/features/communities/communities_view.dart';
 import 'package:whatsapp_clone/features/home/home_screen.dart';
 import 'package:whatsapp_clone/features/onboarding/onboarding_view.dart';
 import 'package:whatsapp_clone/features/updates/updates_view.dart';
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: UpdatesView(),
+      home: CommunitiesView(),
     );
   }
 }
