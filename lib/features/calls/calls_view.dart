@@ -19,6 +19,18 @@ class _CallsViewState extends State<CallsView> {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        elevation: 0,
+        backgroundColor: HexColor("#1daa63"),
+        onPressed: () {},
+        child: IconButton(
+          icon: Icon(
+            Icons.add_call,
+            color: Colors.white,
+          ),
+          onPressed: () {},
+        ),
+      ),
       appBar: AppBar(
         title: Text(
           "Calls",
