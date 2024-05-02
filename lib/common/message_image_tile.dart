@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:whatsapp_clone/features/image_enlarger/image_enlarger_screen.dart';
 
 class MessageImageTile extends StatefulWidget {
   const MessageImageTile({super.key});
@@ -31,15 +32,28 @@ class _MessageImageTileState extends State<MessageImageTile> {
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Container(
-              width: size.width * 0.6,
-              height: size.height * 0.3,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                image: DecorationImage(
-                  image: NetworkImage(
-                      'https://images.unsplash.com/photo-1714165860569-b4b8e1dd7096?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMHx8fGVufDB8fHx8fA%3D%3D'),
-                  fit: BoxFit.cover,
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => EnlargedImageScreen(
+                      imageUrl:
+                          'https://images.unsplash.com/photo-1714165860569-b4b8e1dd7096?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMHx8fGVufDB8fHx8fA%3D%3D',
+                    ),
+                  ),
+                );
+              },
+              child: Container(
+                width: size.width * 0.6,
+                height: size.height * 0.3,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  image: DecorationImage(
+                    image: NetworkImage(
+                        'https://images.unsplash.com/photo-1714165860569-b4b8e1dd7096?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMHx8fGVufDB8fHx8fA%3D%3D'),
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),

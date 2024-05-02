@@ -3,7 +3,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:whatsapp_clone/common/chat_inputfield.dart';
 import 'package:whatsapp_clone/common/message_image_tile.dart';
-import 'package:whatsapp_clone/common/text_message_tile.dart';
+
+import 'package:whatsapp_clone/features/home/home_screen.dart';
+import 'package:whatsapp_clone/utils/utils.dart.';
 
 class ChatView extends StatefulWidget {
   const ChatView({Key? key}) : super(key: key);
@@ -30,11 +32,17 @@ class _ChatViewState extends State<ChatView> {
       appBar: AppBar(
         title: Row(
           children: [
-            Icon(Icons.arrow_back),
+            InkWell(
+                onTap: () {
+                  moveScreen(context, HomeScreen());
+                },
+                child: Icon(Icons.arrow_back)),
             Padding(
               padding: const EdgeInsets.only(left: 4),
               child: CircleAvatar(
-                backgroundImage: AssetImage('assets/images/profile.jpg'),
+                backgroundImage: NetworkImage(
+                  'https://cdn-icons-png.flaticon.com/128/3135/3135715.png',
+                ),
               ),
             ),
             Padding(
