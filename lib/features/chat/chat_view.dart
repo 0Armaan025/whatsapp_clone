@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:whatsapp_clone/common/chat_inputfield.dart';
+import 'package:whatsapp_clone/common/text_message_tile.dart';
 
 class ChatView extends StatefulWidget {
   const ChatView({Key? key}) : super(key: key);
@@ -23,6 +25,7 @@ class _ChatViewState extends State<ChatView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: HexColor("#010101"),
       appBar: AppBar(
         title: Row(
           children: [
@@ -49,7 +52,7 @@ class _ChatViewState extends State<ChatView> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 5.0),
+              padding: const EdgeInsets.only(left: 4),
               child: Icon(
                 Icons.call_outlined,
                 size: 25,
@@ -72,11 +75,9 @@ class _ChatViewState extends State<ChatView> {
           Expanded(
             child: ListView.builder(
               controller: _scrollController,
-              itemCount: 20, // Replace with your actual item count
+              itemCount: 5, // Replace with your actual item count
               itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text('Message $index'),
-                );
+                return TextMessageTile();
               },
             ),
           ),

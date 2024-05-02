@@ -9,6 +9,15 @@ class ChatInputField extends StatefulWidget {
 }
 
 class _ChatInputFieldState extends State<ChatInputField> {
+  final TextEditingController _messageController = TextEditingController();
+  bool _hasText = false;
+
+  @override
+  void dispose() {
+    _messageController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -16,6 +25,13 @@ class _ChatInputFieldState extends State<ChatInputField> {
         children: [
           Expanded(
             child: TextFormField(
+              onChanged: (e) {
+                setState(() {
+                  _hasText = e.isNotEmpty;
+                });
+              },
+
+              controller: _messageController,
               style: TextStyle(color: Colors.black), // Set text color
               decoration: InputDecoration(
                 hintText: 'Message',
@@ -60,10 +76,15 @@ class _ChatInputFieldState extends State<ChatInputField> {
           CircleAvatar(
             radius: 28,
             backgroundColor: HexColor("#1faa68"),
-            child: Icon(
-              Icons.mic,
-              color: Colors.white,
-            ),
+            child: _hasText
+                ? Icon(
+                    Icons.send_sharp,
+                    color: Colors.white,
+                  )
+                : Icon(
+                    Icons.mic,
+                    color: Colors.white,
+                  ),
           ),
         ],
       ),
