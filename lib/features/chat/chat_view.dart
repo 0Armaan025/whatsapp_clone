@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:whatsapp_clone/common/chat_inputfield.dart';
+import 'package:whatsapp_clone/common/message_image_tile.dart';
 import 'package:whatsapp_clone/common/text_message_tile.dart';
 
 class ChatView extends StatefulWidget {
@@ -77,7 +78,7 @@ class _ChatViewState extends State<ChatView> {
               controller: _scrollController,
               itemCount: 5, // Replace with your actual item count
               itemBuilder: (context, index) {
-                return TextMessageTile();
+                return MessageImageTile();
               },
             ),
           ),
