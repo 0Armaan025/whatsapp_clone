@@ -24,32 +24,28 @@ class _ChatInputFieldState extends State<ChatInputField> {
                 fillColor: HexColor("#ffffff"),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.grey),
-                  borderRadius: BorderRadius.circular(60),
+                  borderRadius: BorderRadius.circular(30),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.grey),
-                  borderRadius: BorderRadius.circular(60),
+                  borderRadius: BorderRadius.circular(30),
                 ),
                 suffixIcon: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(4.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Icon(
-                        Icons.emoji_emotions_outlined,
+                        Icons.attach_file_rounded,
                         color: Colors.grey[400],
                       ),
                       SizedBox(width: 10),
                       Icon(
-                        Icons.emoji_emotions_outlined,
+                        Icons.camera_alt_outlined,
                         color: Colors.grey[400],
                       ),
-                      SizedBox(width: 10),
-                      Icon(
-                        Icons.emoji_emotions_outlined,
-                        color: Colors.grey[400],
-                      ),
+                      const SizedBox(width: 10),
                     ],
                   ),
                 ),
@@ -58,6 +54,15 @@ class _ChatInputFieldState extends State<ChatInputField> {
                   color: Colors.grey[400],
                 ),
               ),
+            ),
+          ),
+          const SizedBox(width: 30 / 3),
+          CircleAvatar(
+            radius: 28,
+            backgroundColor: HexColor("#1faa68"),
+            child: Icon(
+              Icons.mic,
+              color: Colors.white,
             ),
           ),
         ],

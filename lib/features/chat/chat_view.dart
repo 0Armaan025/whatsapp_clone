@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:whatsapp_clone/common/chat_inputfield.dart';
 
 class ChatView extends StatefulWidget {
@@ -23,7 +24,48 @@ class _ChatViewState extends State<ChatView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Chat View'),
+        title: Row(
+          children: [
+            Icon(Icons.arrow_back),
+            Padding(
+              padding: const EdgeInsets.only(left: 4),
+              child: CircleAvatar(
+                backgroundImage: AssetImage('assets/images/profile.jpg'),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                "+91 7837433000",
+                style: GoogleFonts.poppins(color: Colors.black, fontSize: 18),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 18.0),
+              child: Icon(
+                Icons.videocam_outlined,
+                size: 26,
+                color: Colors.black,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 5.0),
+              child: Icon(
+                Icons.call_outlined,
+                size: 25,
+                color: Colors.black,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 2),
+              child: Icon(
+                Icons.more_vert_outlined,
+                size: 25,
+                color: Colors.black,
+              ),
+            ),
+          ],
+        ),
       ),
       body: Column(
         children: [
