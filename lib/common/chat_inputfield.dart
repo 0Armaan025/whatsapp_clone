@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 
@@ -10,6 +12,7 @@ class ChatInputField extends StatefulWidget {
 }
 
 class _ChatInputFieldState extends State<ChatInputField> {
+  bool _isHoldingMic = false;
   final TextEditingController _messageController = TextEditingController();
   bool _hasText = false;
 
@@ -24,42 +27,45 @@ class _ChatInputFieldState extends State<ChatInputField> {
     final size = MediaQuery.of(context).size;
     return Column(
       children: [
-        Container(
-          width: double.infinity,
-          decoration: BoxDecoration(
-            color: Colors.black,
-            borderRadius: BorderRadius.circular(4),
-          ),
-          alignment: Alignment.center,
-          child: Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 10.0),
-                child: CircleAvatar(
-                  backgroundColor: Colors.green,
-                  child: Text(
-                    "0:17",
-                    style:
-                        GoogleFonts.poppins(color: Colors.white, fontSize: 14),
+        Opacity(
+          opacity: _isHoldingMic ? 1.0 : 0.0,
+          child: Container(
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: Colors.black,
+              borderRadius: BorderRadius.circular(4),
+            ),
+            alignment: Alignment.center,
+            child: Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 10.0),
+                  child: CircleAvatar(
+                    backgroundColor: Colors.green,
+                    child: Text(
+                      "0:17",
+                      style: GoogleFonts.poppins(
+                          color: Colors.white, fontSize: 14),
+                    ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 8.0),
-                child: Container(
-                  child: Image(
-                    image: NetworkImage(
-                        "https://s3.ezgif.com/tmp/ezgif-3-3a5f822c0d.gif"),
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: Container(
+                    child: Image(
+                      image: NetworkImage(
+                          "https://s3.ezgif.com/tmp/ezgif-3-3a5f822c0d.gif"),
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
+            height: size.height * 0.07,
+            margin: EdgeInsets.only(
+                bottom: size.height * 0.02,
+                left: size.width * 0.02,
+                right: size.width * 0.02),
           ),
-          height: size.height * 0.07,
-          margin: EdgeInsets.only(
-              bottom: size.height * 0.02,
-              left: size.width * 0.02,
-              right: size.width * 0.02),
         ),
         Container(
           child: Row(
@@ -114,18 +120,32 @@ class _ChatInputFieldState extends State<ChatInputField> {
                 ),
               ),
               const SizedBox(width: 30 / 3),
-              CircleAvatar(
-                radius: 28,
-                backgroundColor: HexColor("#1faa68"),
-                child: _hasText
-                    ? Icon(
-                        Icons.send_sharp,
-                        color: Colors.white,
-                      )
-                    : Icon(
-                        Icons.mic,
-                        color: Colors.white,
-                      ),
+              GestureDetector(
+                onTapDown: (details) {
+                  setState(() {
+                    _isHoldingMic = true;
+                  });
+                },
+                onTapUp: (details) {
+                  setState(() {
+                    _isHoldingMic = false;
+                  });
+                },
+                child: CircleAvatar(
+                  radius: _isHoldingMic ? 32 : 28,
+                  backgroundColor: !_isHoldingMic
+                      ? HexColor("#1faa68")
+                      : HexColor("#046C3B"),
+                  child: _hasText
+                      ? Icon(
+                          Icons.send_sharp,
+                          color: Colors.white,
+                        )
+                      : Icon(
+                          Icons.mic,
+                          color: Colors.white,
+                        ),
+                ),
               ),
             ],
           ),
