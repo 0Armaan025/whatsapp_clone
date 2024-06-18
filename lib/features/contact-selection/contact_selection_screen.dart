@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:whatsapp_clone/common/new_features_widget.dart';
 import 'package:whatsapp_clone/features/home/home_screen.dart';
 import 'package:whatsapp_clone/utils/moveScreen.dart';
 
@@ -71,6 +72,7 @@ class _ContactSelectionScreenState extends State<ContactSelectionScreen> {
               const SizedBox(
                 height: 20,
               ),
+              NewFeaturesWidget(),
             ],
           ),
         ),
