@@ -74,40 +74,26 @@ class _ChatInputFieldState extends State<ChatInputField>
                   ),
                   Column(
                     children: [
-                      CircleAvatar(),
-                      Text('random id'),
+                      CircleAvatar(
+                        backgroundColor: HexColor("#ff2e77"),
+                        child: Icon(
+                          Icons.camera_alt_rounded,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text('Camera'),
                     ],
                   ),
                   Column(
                     children: [
-                      CircleAvatar(),
-                      Text('random id'),
-                    ],
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Column(
-                    children: [
-                      CircleAvatar(),
-                      Text('random id'),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      CircleAvatar(),
-                      Text('random id'),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      CircleAvatar(),
-                      Text('random id'),
+                      CircleAvatar(
+                        backgroundColor: HexColor("#cb60fa"),
+                        child: Icon(
+                          CupertinoIcons.photo_fill,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text('Gallery'),
                     ],
                   ),
                 ],
@@ -115,25 +101,80 @@ class _ChatInputFieldState extends State<ChatInputField>
               const SizedBox(
                 height: 10,
               ),
+              Container(
+                margin: const EdgeInsets.only(left: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Column(
+                      children: [
+                        CircleAvatar(
+                          backgroundColor: HexColor("#f96533"),
+                          child: Icon(
+                            Icons.headphones,
+                            color: Colors.white,
+                          ),
+                        ),
+                        Text('Audio'),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        CircleAvatar(
+                          backgroundColor: HexColor("#7f67fb"),
+                          child: Icon(
+                            Icons.pin_drop,
+                            color: Colors.white,
+                          ),
+                        ),
+                        Text('Location'),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        CircleAvatar(
+                          radius: 20,
+                          backgroundColor: HexColor("#05a699"),
+                          child: CircleAvatar(
+                            radius: 14,
+                            backgroundColor: Colors.white,
+                            child: Icon(Icons.currency_rupee_sharp),
+                          ),
+                        ),
+                        Text('Document'),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Column(
                     children: [
-                      CircleAvatar(),
-                      Text('random id'),
+                      CircleAvatar(
+                        backgroundColor: HexColor("#0097de"),
+                        child: Icon(
+                          Icons.person_2,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text('Contact'),
                     ],
                   ),
                   Column(
                     children: [
-                      CircleAvatar(),
-                      Text('random id'),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      CircleAvatar(),
-                      Text('random id'),
+                      CircleAvatar(
+                        backgroundColor: HexColor("#049d95"),
+                        child: Icon(
+                          Icons.poll,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text('Poll'),
                     ],
                   ),
                 ],
