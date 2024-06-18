@@ -14,7 +14,6 @@ class ContactSelectionScreen extends StatefulWidget {
 class _ContactSelectionScreenState extends State<ContactSelectionScreen> {
   @override
   Widget build(BuildContext context) {
-
     final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
@@ -47,15 +46,15 @@ class _ContactSelectionScreenState extends State<ContactSelectionScreen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 90),
+              padding: EdgeInsets.only(left: size.width * 0.27),
               child: Icon(
-                Icons.call_outlined,
+                Icons.search,
                 size: 25,
                 color: Colors.black,
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 2),
+              padding: const EdgeInsets.only(left: 8),
               child: Icon(
                 Icons.more_vert_outlined,
                 size: 25,
