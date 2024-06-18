@@ -20,12 +20,15 @@ class _ChatViewState extends State<ChatView> {
   final TextEditingController _textController = TextEditingController();
   final ScrollController _scrollController = ScrollController();
 
+
   @override
   void dispose() {
     _textController.dispose();
     _scrollController.dispose();
     super.dispose();
   }
+
+
 
   @override
   Widget build(BuildContext context) {

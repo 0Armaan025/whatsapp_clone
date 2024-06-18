@@ -13,15 +13,31 @@ class ChatInputField extends StatefulWidget {
   State<ChatInputField> createState() => _ChatInputFieldState();
 }
 
-class _ChatInputFieldState extends State<ChatInputField> {
+class _ChatInputFieldState extends State<ChatInputField>
+    with TickerProviderStateMixin {
   bool _isHoldingMic = false;
   final TextEditingController _messageController = TextEditingController();
   bool _hasText = false;
   int _secondsElapsed = 0;
+  late AnimationController controller;
+  bool _showFeatures = false;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = BottomSheet.createAnimationController(this);
+
+    controller.duration = const Duration(seconds: 1);
+
+    controller.reverseDuration = const Duration(seconds: 1);
+
+    controller.drive(CurveTween(curve: Curves.easeIn));
+  }
 
   @override
   void dispose() {
     _messageController.dispose();
+    controller.dispose();
     super.dispose();
   }
 
@@ -30,11 +46,111 @@ class _ChatInputFieldState extends State<ChatInputField> {
     final size = MediaQuery.of(context).size;
     return Column(
       children: [
+        Container(
+          height: size.height * 0.3,
+          width: double.infinity,
+          alignment: Alignment.center,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const SizedBox(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Column(
+                    children: [
+                      CircleAvatar(
+                        backgroundColor: HexColor("#7f67fb"),
+                        child: Icon(
+                          Icons.description,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text('Document'),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      CircleAvatar(),
+                      Text('random id'),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      CircleAvatar(),
+                      Text('random id'),
+                    ],
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Column(
+                    children: [
+                      CircleAvatar(),
+                      Text('random id'),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      CircleAvatar(),
+                      Text('random id'),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      CircleAvatar(),
+                      Text('random id'),
+                    ],
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Column(
+                    children: [
+                      CircleAvatar(),
+                      Text('random id'),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      CircleAvatar(),
+                      Text('random id'),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      CircleAvatar(),
+                      Text('random id'),
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
+          margin:
+              const EdgeInsets.symmetric(horizontal: 10).copyWith(bottom: 10),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(6),
+          ),
+        ),
         _isHoldingMic
             ? Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  
                   color: _isHoldingMic ? Colors.black : Colors.transparent,
                   borderRadius: BorderRadius.circular(4),
                 ),
@@ -105,9 +221,12 @@ class _ChatInputFieldState extends State<ChatInputField> {
                         mainAxisAlignment: MainAxisAlignment.end,
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Icon(
-                            Icons.attach_file_rounded,
-                            color: Colors.grey[400],
+                          InkWell(
+                            onTap: () {},
+                            child: Icon(
+                              Icons.attach_file_rounded,
+                              color: Colors.grey[400],
+                            ),
                           ),
                           SizedBox(width: 10),
                           Icon(
