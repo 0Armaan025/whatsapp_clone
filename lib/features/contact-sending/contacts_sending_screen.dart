@@ -6,8 +6,8 @@ import 'package:whatsapp_clone/features/contact-selection/contact_tile.dart';
 import 'package:whatsapp_clone/features/home/home_screen.dart';
 import 'package:whatsapp_clone/utils/moveScreen.dart';
 
-class ContactSelectionScreen extends StatelessWidget {
-  const ContactSelectionScreen({Key? key}) : super(key: key);
+class ContactSendingScreen extends StatelessWidget {
+  const ContactSendingScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,15 +29,15 @@ class ContactSelectionScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Select contact",
+                    "Contacts to send",
                     style: GoogleFonts.poppins(
                       fontSize: 18,
                     ),
                   ),
                   Text(
-                    "266 Contacts",
+                    "0 selected",
                     style: GoogleFonts.poppins(
-                      fontSize: 14,
+                      fontSize: 13,
                     ),
                   ),
                 ],
@@ -49,12 +49,6 @@ class ContactSelectionScreen extends StatelessWidget {
               size: 25,
               color: Colors.black,
             ),
-            const SizedBox(width: 8), // Add some space between icons
-            Icon(
-              Icons.more_vert_outlined,
-              size: 25,
-              color: Colors.black,
-            ),
           ],
         ),
       ),
@@ -63,29 +57,6 @@ class ContactSelectionScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: NewFeaturesWidget(),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(10, 5, 10, 0),
-              child: Text(
-                "Contacts on WhatsApp",
-                style: TextStyle(color: Colors.grey[500], fontSize: 14),
-              ),
-            ),
-            Expanded(
-              child: ListView.builder(
-                itemBuilder: (context, index) {
-                  return ContactTile(
-                    name: 'Armaan',
-                    profilePictureUrl:
-                        'https://cdn-icons-png.flaticon.com/128/3135/3135715.png',
-                  );
-                },
-                itemCount: 12,
-              ),
-            ),
           ],
         ),
       ),

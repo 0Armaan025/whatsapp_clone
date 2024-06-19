@@ -46,148 +46,142 @@ class _ChatInputFieldState extends State<ChatInputField>
     final size = MediaQuery.of(context).size;
     return Column(
       children: [
-        Container(
-          height: size.height * 0.3,
-          width: double.infinity,
-          alignment: Alignment.center,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const SizedBox(
-                height: 10,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Column(
-                    children: [
-                      CircleAvatar(
-                        backgroundColor: HexColor("#7f67fb"),
-                        child: Icon(
-                          Icons.description,
-                          color: Colors.white,
-                        ),
-                      ),
-                      Text('Document'),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      CircleAvatar(
-                        backgroundColor: HexColor("#ff2e77"),
-                        child: Icon(
-                          Icons.camera_alt_rounded,
-                          color: Colors.white,
-                        ),
-                      ),
-                      Text('Camera'),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      CircleAvatar(
-                        backgroundColor: HexColor("#cb60fa"),
-                        child: Icon(
-                          CupertinoIcons.photo_fill,
-                          color: Colors.white,
-                        ),
-                      ),
-                      Text('Gallery'),
-                    ],
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Container(
-                margin: const EdgeInsets.only(left: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+        _showFeatures
+            ? AnimatedContainer(
+                duration: Duration(seconds: 1), // Duration of the animation
+                padding: const EdgeInsets.all(8),
+                curve: Curves
+                    .easeInOut, // Animation curve (optional, gives a smoother feel)
+                margin: const EdgeInsets.only(left: 10, bottom: 20),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(8)),
+                child: Column(
                   children: [
-                    Column(
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        CircleAvatar(
-                          backgroundColor: HexColor("#f96533"),
-                          child: Icon(
-                            Icons.headphones,
-                            color: Colors.white,
-                          ),
+                        Column(
+                          children: [
+                            CircleAvatar(
+                              backgroundColor: HexColor("#7f67fb"),
+                              child: Icon(
+                                Icons.description,
+                                color: Colors.white,
+                              ),
+                            ),
+                            Text('Document'),
+                          ],
                         ),
-                        Text('Audio'),
+                        Column(
+                          children: [
+                            CircleAvatar(
+                              backgroundColor: HexColor("#ff2e77"),
+                              child: Icon(
+                                Icons.camera_alt_rounded,
+                                color: Colors.white,
+                              ),
+                            ),
+                            Text('Camera'),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            CircleAvatar(
+                              backgroundColor: HexColor("#cb60fa"),
+                              child: Icon(
+                                CupertinoIcons.photo_fill,
+                                color: Colors.white,
+                              ),
+                            ),
+                            Text('Gallery'),
+                          ],
+                        ),
                       ],
                     ),
-                    Column(
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        CircleAvatar(
-                          backgroundColor: HexColor("#7f67fb"),
-                          child: Icon(
-                            Icons.pin_drop,
-                            color: Colors.white,
-                          ),
+                        Column(
+                          children: [
+                            CircleAvatar(
+                              backgroundColor: HexColor("#f96533"),
+                              child: Icon(
+                                Icons.headphones,
+                                color: Colors.white,
+                              ),
+                            ),
+                            Text('Audio'),
+                          ],
                         ),
-                        Text('Location'),
+                        Column(
+                          children: [
+                            CircleAvatar(
+                              backgroundColor: HexColor("#7f67fb"),
+                              child: Icon(
+                                Icons.pin_drop,
+                                color: Colors.white,
+                              ),
+                            ),
+                            Text('Location'),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            CircleAvatar(
+                              radius: 20,
+                              backgroundColor: HexColor("#05a699"),
+                              child: CircleAvatar(
+                                radius: 14,
+                                backgroundColor: Colors.white,
+                                child: Icon(Icons
+                                    .attach_money), // Changed to match available icons
+                              ),
+                            ),
+                            Text('Payment'),
+                          ],
+                        ),
                       ],
                     ),
-                    Column(
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        CircleAvatar(
-                          radius: 20,
-                          backgroundColor: HexColor("#05a699"),
-                          child: CircleAvatar(
-                            radius: 14,
-                            backgroundColor: Colors.white,
-                            child: Icon(Icons.currency_rupee_sharp),
-                          ),
+                        Column(
+                          children: [
+                            CircleAvatar(
+                              backgroundColor: HexColor("#0097de"),
+                              child: Icon(
+                                Icons.person_2,
+                                color: Colors.white,
+                              ),
+                            ),
+                            Text('Contact'),
+                          ],
                         ),
-                        Text('Document'),
+                        Column(
+                          children: [
+                            CircleAvatar(
+                              backgroundColor: HexColor("#049d95"),
+                              child: Icon(
+                                Icons.poll,
+                                color: Colors.white,
+                              ),
+                            ),
+                            Text('Poll'),
+                          ],
+                        ),
                       ],
                     ),
                   ],
                 ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Column(
-                    children: [
-                      CircleAvatar(
-                        backgroundColor: HexColor("#0097de"),
-                        child: Icon(
-                          Icons.person_2,
-                          color: Colors.white,
-                        ),
-                      ),
-                      Text('Contact'),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      CircleAvatar(
-                        backgroundColor: HexColor("#049d95"),
-                        child: Icon(
-                          Icons.poll,
-                          color: Colors.white,
-                        ),
-                      ),
-                      Text('Poll'),
-                    ],
-                  ),
-                ],
-              ),
-            ],
-          ),
-          margin:
-              const EdgeInsets.symmetric(horizontal: 10).copyWith(bottom: 10),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(6),
-          ),
-        ),
+              )
+            : Container(),
         _isHoldingMic
             ? Container(
                 width: double.infinity,
@@ -263,7 +257,11 @@ class _ChatInputFieldState extends State<ChatInputField>
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              setState(() {
+                                _showFeatures = !_showFeatures;
+                              });
+                            },
                             child: Icon(
                               Icons.attach_file_rounded,
                               color: Colors.grey[400],
